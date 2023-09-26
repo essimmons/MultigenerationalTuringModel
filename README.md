@@ -7,13 +7,16 @@ The code included in this project reproduces simulations for a population of F2 
 
 ### Included files
 - Main file for running simulations.
-	- GenerateFigsFromLoadedParams.m
-- 5 supporting function files.
-	- ImplicitRxnDiff2D.m
-	- findSteadyState.m
+	- config.m
+- 8 supporting function files (listed alphabetically).
+	- buildF2Fig.m
 	- findCriticalk2.m
 	- findJacobian.m
+	- findSteadyState.m
+	- implicitRxnDiff2D.m
 	- interpretZygosity.m
+	- revertFromF1ToGenes.m
+	- runF2Simulations.m
 - 6 different parameter files titled "FigXXParams.mat" which reproduce the corresponding published figures.
 	- Fig04Params.mat
 	- Fig5AParams.mat
@@ -29,12 +32,17 @@ This project is built on MATLAB_2023a.
 - Open MatLab
 - Load parameters from one of the 6 corresponding parameter files, or make your own.
 	- If making your own parameter set, reference one of the parameter sets provided for formatting.
-- Choose the number of mesh points, $N$, you wish to use in your simulation. 
-    - To reproduce the figures as they appear in the paper, choose `N=100`.
-- Choose the spatial domain as multiples of the anticipated F1 wavelength, $\omega$.
-- Choose whether or not you want to build and save the figure. If yes, set `makeF2Fig=1`. If no, set `makeF2Fig=0`.
-- Run the file GenerateFigsFromLoadedParams.m. Figures displaying simulation progress will pop up. 
-	- To turn off progress figures, comment out lines 100-108 of the file ImplicitRxnDiff2D.m.
+- Set up your simulation configurations in `config.m`
+	- `configs.N`: the number of mesh points, $N$, you wish to use in your simulation.
+	    - To reproduce the figures as they appear in the paper, choose `configs.N=100`.
+	- `configs.axisSize`: Choose the spatial domain as multiples of the anticipated F1 wavelength, $\omega$.
+	- `configs.makeF2Fig`: Choose whether or not you want to build and save the figure. 
+		- If yes, set `configs.makeF2Fig=1`. 
+		- If no, set `configs.makeF2Fig=0`.
+	- `configs.showProgress`: Choose whether or not you want to see the progression of the simulations as they are calculated.
+		- If yes, set `configs.showProgress=1`.
+		- If no, set `configs.showProgress=0`.
+- Run the file `config.m`.
 - When complete the program will save the steady-state activator concentration results of all 12 simulations as
 		"UdataSz"+ `N` + ".mat"
 		"UdataSz"+ `N` + ".dat"

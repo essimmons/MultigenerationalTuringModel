@@ -1,7 +1,7 @@
-function [k2,realEigsAp,k2crit,realEigCrit,w] = findCriticalk2(J,param,Dv)
+function [k2,realEigsAp,k2crit,realEigCrit,w] = findCriticalk2(J,param)
         
-    Du=param.D_u;
-    k2 = logspace(-4,-1,1000); % this is k^2
+    Du=param.D_u; Dv=param.D_v;
+    k2 = logspace(-4,-1,1000); %this is k^2
     D = diag([Du;Dv;Du;Dv]);
     eigsAp = zeros(4,length(k2));
     

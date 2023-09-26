@@ -1,7 +1,6 @@
 function [u1_ss,u2_ss,v1_ss,v2_ss] = findSteadyState(param)
     dt=0.1; %step size to be used
     N=1000000; %max steps to run
-    %t=(0:dt:(N-1)*dt);
     u1=zeros(1,N); %create empty vector for u
     u1(1)=0.1; %initial value u
     u2=zeros(1,N); %create empty vector for u
@@ -10,7 +9,7 @@ function [u1_ss,u2_ss,v1_ss,v2_ss] = findSteadyState(param)
     v1(1)=0.1; %initial value v
     v2=zeros(1,N); %create empty vector for v
     v2(1)=0.1; %initial value v
-    epsilon = 10e-15;
+    epsilon = 10e-15; %threshold to determine when steady-state is reached
     
     for n=1:N-1
         [f1,f2,g1,g2] = findUdot(u1(n),u2(n),v1(n),v2(n),param);
@@ -22,13 +21,7 @@ function [u1_ss,u2_ss,v1_ss,v2_ss] = findSteadyState(param)
             break
         end
     end 
-    
     u1_ss=u1(n); u2_ss=u2(n); v1_ss=v1(n); v2_ss=v2(n);
-    
-    %figure(1)
-    %plot(t(1:n),u1(1:n),t(1:n),v1(1:n))
-    %figure(2)
-    %plot(t(1:n),u2(1:n),t(1:n),v2(1:n))
 end
 
 function [f1,f2,g1,g2] = findUdot(u1,u2,v1,v2,param)
@@ -40,7 +33,7 @@ function [f1,f2,g1,g2] = findUdot(u1,u2,v1,v2,param)
     ku2u1 = param.ku2u1; ku2u2 = param.ku2u2; ku2v1 = param.ku2v1; ku2v2 = param.ku2v2;
     kv1u1 = param.kv1u1; kv1u2 = param.kv1u2; kv1v1 = param.kv1v1; kv1v2 = param.kv1v2;
     kv2u1 = param.kv2u1; kv2u2 = param.kv2u2; kv2v1 = param.kv2v1; kv2v2 = param.kv2v2;
-
+    
     
     f1 = -bu1*u1+au1+gu1*((ku1u1*u1+ku1u2*u2)/(1+ku1u1*u1+ku1u2*u2+ku1v1*v1+ku1v2*v2))^2;
     f2 = -bu2*u2+au2+gu2*((ku2u1*u1+ku2u2*u2)/(1+ku2u1*u1+ku2u2*u2+ku2v1*v1+ku2v2*v2))^2;
