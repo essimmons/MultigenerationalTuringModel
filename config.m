@@ -5,7 +5,7 @@
 clearvars -except param_F1
 close all
 clc
-
+%this is a comment
 configs.N=25; %choose the number of mesh points in x and y
 configs.axisSize=5; %how many wavelengths of the F1 pattern you will see
 configs.makeF2Fig=1; %turn on or off to build the figure with all simulations.
