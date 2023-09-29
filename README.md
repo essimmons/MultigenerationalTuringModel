@@ -7,9 +7,10 @@ The code included in this project reproduces simulations for a population of F2 
 
 ### Included files
 - Main file for running simulations.
-	- config.m
-- 8 supporting function files (listed alphabetically).
+	- MultigenTuringModel.m
+- Supporting function files (listed alphabetically).
 	- buildF2Fig.m
+    - config.m   
 	- findCriticalk2.m
 	- findJacobian.m
 	- findSteadyState.m

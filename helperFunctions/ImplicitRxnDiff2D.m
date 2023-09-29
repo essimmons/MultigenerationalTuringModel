@@ -1,4 +1,4 @@
-function [U_tot,V_tot,x,y] = ImplicitRxnDiff2D(param,configs)
+function [U_tot,V_tot,x,y] = implicitRxnDiff2D(param,configs)
 D_u=param.D_u; D_v=param.D_v;
 au1 = param.alpha_u1; bu1 = param.beta_u1; gu1 = param.gamma_u1;
 au2 = param.alpha_u2; bu2 = param.beta_u2; gu2 = param.gamma_u2;
