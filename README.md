@@ -43,8 +43,8 @@ This project is built on MATLAB_2023a.
 	- `configs.showProgress`: Choose whether or not you want to see the progression of the simulations as they are calculated.
 		- If yes, set `configs.showProgress=1`.
 		- If no, set `configs.showProgress=0`.
-- Run the file `config.m`.
-- When complete the program will save the steady-state activator concentration results of all 12 simulations as
+- Run the file `MultigenTuringModel.m`.
+- When complete, the program will save the steady-state activator concentration results of all 12 simulations as
 		"UdataSz"+ `N` + ".mat"
 		"UdataSz"+ `N` + ".dat"
 	- If you opted to build the figure, the figure will be saved as 
