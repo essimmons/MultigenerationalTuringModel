@@ -16,9 +16,9 @@ J_F1=findJacobian(param_F1);
 [~,~,~,~,configs.w] = findCriticalk2(J_F1,param_F1);
 
 %Parent and F1 simulations
-[U_PA,~,~,~]=ImplicitRxnDiff2D(param_PA,configs);
-[U_PB,~,x,y]=ImplicitRxnDiff2D(param_PB,configs);
-[U_F1,~,~,~]=ImplicitRxnDiff2D(param_F1,configs);
+[U_F1,~,~,~]=implicitRxnDiff2D(param_F1,configs);
+[U_PA,~,~,~]=implicitRxnDiff2D(param_PA,configs);
+[U_PB,~,x,y]=implicitRxnDiff2D(param_PB,configs);
 
 %% F2 simulations
 
@@ -56,7 +56,7 @@ for i=1:2
                 if configs.showProgress==1
                     figure(f20)
                 end
-                [U_F2,~,~,~]=ImplicitRxnDiff2D(paramTmp,configs);
+                [U_F2,~,~,~]=implicitRxnDiff2D(paramTmp,configs);
                 U_data(:,F2Count+5)=reshape(U_F2,length(U_data),1);
                 F2Count=F2Count+1;
             end

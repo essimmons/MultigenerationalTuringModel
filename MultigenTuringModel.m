@@ -9,6 +9,12 @@ clc
 %call configuration function
 configVars=config();
 
+loadedParams=exist('param_F1','var');
+if loadedParams==0
+    error(['Looks like you havent correctly loaded a parameter set. ' ...
+        'Make sure you have all the parameters you need, then try again.'])
+end
+
 %call function to run all simulations in F2 generation
 [configVars,U_data]=runF2Simulations(configVars,param_F1);
 
