@@ -19,11 +19,11 @@ end
 [configVars,U_data]=runF2Simulations(configVars,param_F1);
 
 %optially, call function to output and save a figure
-if configs.makeF2Fig==1
-    [F2Figure]=buildF2Fig(configs,U_data);
-    savefig(['F2SimulationsSz',num2str(configs.N),'.fig'])
+if configVars.makeF2Fig==1
+    [F2Figure]=buildF2Fig(configVars,U_data);
+    savefig(['F2SimulationsSz',num2str(configVars.N),'.fig'])
 end
 
 %save simulation results
-save(['UdataSz',num2str(configs.N),'.dat'],'U_data','-ascii')
-save(['UdataSz',num2str(configs.N),'.mat'],'U_data')
+save(['UdataSz',num2str(configVars.N),'.dat'],'U_data','-ascii')
+save(['UdataSz',num2str(configVars.N),'.mat'],'U_data')
